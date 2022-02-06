@@ -144,7 +144,7 @@ function addCarForRent() {
         return json_encode(array('status' => 'error', 'message' => 'Database connection error'));
     }
     $sql = "INSERT INTO car (agency_id, model, num, seat_cap, rent_per_day, is_available ) 
-                     VALUES ('$agency_id', '$car_model', '$car_num', '$car_seat_cap', '$car_rent_per_day', '$car_is_available')";
+                     VALUES ('$user_id', '$car_model', '$car_num', '$car_seat_cap', '$car_rent_per_day', '$car_is_available')";
     $result = $db->query($sql);
     if ($result === true) {
         $car = [
