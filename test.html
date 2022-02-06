@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="main"></div>
+    <script>
+      const print = (data) => {
+        for (key in data) {
+          document.querySelector(".main").innerHTML += `<p>Key is ${key}. Value is ${data[key]}</p>`;
+        }
+      };
+      // fetch("http://127.0.0.1:1000/post", {
+      //   method: "POST",
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //   },
+      //   body: JSON.stringify({
+      //     test: "test",
+      //   }),
+      // }).then((res) => res.json().then((data) => console.log(data)));
+      // fetch("http://127.0.0.1:1000/get").then((res) => res.json().then((data) => print(data)));
+      fetch("http://127.0.0.1:1000/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        credentials: "include",
+        body: JSON.stringify({
+          username: "mandeepa",
+          password: "bagga",
+        }),
+      })
+        .then((res) => res.json())
+        .then(console.log)
+        .then(() =>
+          fetch("http://127.0.0.1:1000/test", {
+            credentials: "include",
+          })
+            .then((res) => res.json())
+            .then(console.log)
+        );
+      //   .then((data) => (document.body.innerHTML = `<pre>${data}</pre>`));
+    </script>
+  </body>
+</html>
