@@ -5,6 +5,7 @@
 
 // $conn = new mysqli($servername, $username, $password);
 require 'vendor/autoload.php';
+// header("Access-Control-Allow-Origin: http://localhost:3000");
 header("Access-Control-Allow-Origin: http://ec2-52-66-53-59.ap-south-1.compute.amazonaws.com:3000");
 header("Access-Control-Allow-Credentials: true");
 header("Access-Control-Allow-Headers: X-Requested-With, Content-Type, Origin, Cache-Control, Pragma, Authorization, Accept, Accept-Encoding");
